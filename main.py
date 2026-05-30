@@ -19,7 +19,7 @@ app = FastAPI(title="Team Task Manager API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production: specify your frontend URL
+    allow_origins=["https://team-task-management-system-fronten.vercel.app/"],  # In production: specify your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
