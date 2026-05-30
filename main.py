@@ -17,9 +17,16 @@ except Exception as e:
 app = FastAPI(title="Team Task Manager API", version="1.0.0")
 
 
+# NOTE: Keep CORS in sync with the actual deployed frontend origin(s).
+# Your current frontend URL appears to be: https://team-task-management-system-fronten.vercel.app/login
+# The Origin header will be based on the domain (no path), i.e. https://team-task-management-system-fronten.vercel.app
+FRONTEND_ORIGINS = [
+    "https://team-task-management-system-fronten.vercel.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://team-task-management-system-fronten.vercel.app"],  # In production: specify your frontend URL
+    allow_origins=FRONTEND_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
